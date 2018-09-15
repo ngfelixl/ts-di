@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/ngfelixl/fl-node-di/badge.svg?branch=master)](https://coveralls.io/github/ngfelixl/fl-node-di?branch=master)
+
 # NodeJS dependency injection in Angular style
 
 NodeJS dependency injection module on top of [inversify](http://inversify.io/) for using
