@@ -1,0 +1,40 @@
+{
+  "name": "fl-node-di",
+  "version": "0.0.1",
+  "description": "NodeJS dependency injection in Angular style",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngfelixl/fl-node-di.git"
+  },
+  "keywords": [
+    "nodejs",
+    "dependencyinjection",
+    "di",
+    "dependency",
+    "injection"
+  ],
+  "author": "Felix Lemke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngfelixl/fl-node-di/issues"
+  },
+  "homepage": "https://github.com/ngfelixl/fl-node-di#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "inversify": "^4.13.0",
+    "reflect-metadata": "^0.1.12"
+  }
+}
