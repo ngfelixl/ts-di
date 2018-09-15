@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ngfelixl/fl-node-di.svg?branch=master)](https://travis-ci.org/ngfelixl/fl-node-di)
 [![Coverage Status](https://coveralls.io/repos/github/ngfelixl/fl-node-di/badge.svg?branch=master)](https://coveralls.io/github/ngfelixl/fl-node-di?branch=master)
 
 # NodeJS dependency injection in Angular style
