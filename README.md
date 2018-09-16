@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/ngfelixl/fl-node-di.svg?branch=master)](https://travis-ci.org/ngfelixl/fl-node-di)
 [![Coverage Status](https://coveralls.io/repos/github/ngfelixl/fl-node-di/badge.svg?branch=master)](https://coveralls.io/github/ngfelixl/fl-node-di?branch=master)
+[![npm version](https://badge.fury.io/js/fl-node-di.svg)](https://badge.fury.io/js/fl-node-di)
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/fl-node-di/)
 
-# NodeJS dependency injection in Angular style
+# Hierarchical NodeJS dependency injection in Angular style
 
 ## Installation
 
@@ -32,7 +34,7 @@ your complete application
   providers: [ AuthService ],
   exports: [ ]
 })
-export class AppModule
+export class AppModule {}
 ```
 
 The other two decorators are 
@@ -70,10 +72,11 @@ The DI system is hierarchical.
 | Input parameter              | Description                      |
 | ---------------------------- | -------------------------------- |
 | imports                      | Creates an instance of the imported `FlModule()`, reads the exports parameter of the instantiated object and stores the exports in its own container. The instance is handled as a child of this module, so Inject()s will work in the child even if the child does not contain the instance itself, but its parent. |
-| declarations                 | Binds `@Component()` decorated classes to the container and after creating all child inputs it directly creates an instance. |
+| declarations                 | Binds `@Component()` decorated classes to the container and after creating all imports it directly creates an instance. |
 | providers                    | Binds `@Injectable()` decorated classes to the container |
 | exports                      | Binds `@Injectable()` or `@Component()` decorated classes to the parents container |
 
 ## Dependencies
 
 - [inversify](http://inversify.io/)
+- [reflect-metadata](https://github.com/rbuckton/reflect-metadata)
