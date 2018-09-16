@@ -4,15 +4,13 @@
   "description": "NodeJS dependency injection in Angular style",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.spec.ts",
-    "build-test": "cd test && tsc",
-    "cover": "npm run build-test && istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec",
-    "build": "tsc"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ngfelixl/fl-node-di.git"
+  },
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec",
+    "build": "tsc"
   },
   "keywords": [
     "nodejs",
@@ -34,6 +32,7 @@
     "coveralls": "^3.0.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
+    "source-map-support": "^0.5.9",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   },

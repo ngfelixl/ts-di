@@ -2,21 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 const inversify_1 = require("inversify");
-/**
- * FlModule decorator
- * @param config as { imports?: any[], providers?: any[], declarations?: any[], exports?: any[] }
- *
- * imports: Creates an instance of imported modules without container bindings, binds exports of child to own container
- *
- * providers: Binds class definition to container
- *
- * declarations: Binds class definition to container and creates an instance
- *
- * exports: Binds exports array to reflect-metadata to be accessible by imports
- */
 function FlModule(config) {
     return function (constructor) {
-        // console.log(`\nConstructing ${constructor.name}`); // MyClass
         let container = new inversify_1.Container({ defaultScope: "Singleton" });
         if (config.providers) {
             const providersArray = config.providers.reduce((a, b) => Array.isArray(b) ? [...a, ...b] : [...a, b], []);
@@ -49,7 +36,7 @@ function FlModule(config) {
             }
         }
         if (config.exports) {
-            var exportsArray = config.exports.reduce((a, b) => Array.isArray(b) ? [...a, ...b] : [...a, b], []);
+            const exportsArray = config.exports.reduce((a, b) => Array.isArray(b) ? [...a, ...b] : [...a, b], []);
             Reflect.defineMetadata('exports', exportsArray, container);
         }
         if (config.declarations) {
@@ -68,27 +55,15 @@ function FlModule(config) {
     };
 }
 exports.FlModule = FlModule;
-/**
- * @return inversify injectable()
- */
 function Injectable() {
     return inversify_1.injectable();
 }
 exports.Injectable = Injectable;
-/**
- * @return inversify injectable()
- */
 function Component() {
     return inversify_1.injectable();
 }
 exports.Component = Component;
-/**
- *
- * @param serviceIdentifier
- * @return inversify inject(serviceIdentifier)
- */
 function Inject(serviceIdentifier) {
     return inversify_1.inject(serviceIdentifier);
 }
 exports.Inject = Inject;
-//# sourceMappingURL=index.js.map

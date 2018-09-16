@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { Container, injectable, inject } from 'inversify';
 import { ServiceIdentifierOrFunc } from 'inversify/dts/annotation/inject';
 
-interface DecoratorConfig {
+export interface DecoratorConfig {
   imports?: any[];
   providers?: any[];
   declarations?: any[];
@@ -61,7 +61,7 @@ export function FlModule(config: DecoratorConfig) {
     }
 
     if (config.exports) {
-      var exportsArray = config.exports.reduce((a, b) => Array.isArray(b) ? [...a, ...b] : [...a, b], []);
+      const exportsArray = config.exports.reduce((a, b) => Array.isArray(b) ? [...a, ...b] : [...a, b], []);
       Reflect.defineMetadata('exports', exportsArray, container);
     }
 

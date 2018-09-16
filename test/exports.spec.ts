@@ -1,17 +1,29 @@
-import { FlModule, Component, Injectable, Inject } from '../src';
+import { FlModule, Component, Injectable, Inject } from '../dist';
 
 import { expect } from 'chai';
 import 'mocha';
 
-let serviceCounter = 0;
+let service1Counter = 0;
+let service2Counter = 0;
 
 describe('Test exports', () => {
   @Injectable()
   class Child1Service {
     constructor() {
-      serviceCounter++;
+      service1Counter++;
       it('service should be instanciated once', () => {
-        expect(serviceCounter).to.be.eql(1);
+        expect(service1Counter).to.be.eql(1);
+      })
+    }
+  }
+
+  
+  @Injectable()
+  class Child2Service {
+    constructor() {
+      service2Counter++;
+      it('service should be instanciated once', () => {
+        expect(service2Counter).to.be.eql(1);
       })
     }
   }
@@ -48,21 +60,26 @@ describe('Test exports', () => {
 
   @FlModule({
     declarations: [ Child1Component1, Child1Component2 ],
-    exports: [ Child1Service ]
+    exports: [ [ Child1Service ] ]
   })
   class Child1 {
     constructor() {}
   }
 
   @FlModule({
-    declarations: [ Child2Component1 ]
+    declarations: [ [ Child2Component1 ] ],
+    providers: [ [ Child2Service ] ],
+    exports: [ Child2Service ]
   })
   class Child2 {}
 
+  @FlModule({})
+  class Child3 {}
+
 
   @FlModule({
-    imports: [ Child1, Child2 ],
-    declarations: [ ParentComponent ]
+    imports: [ [ Child1, Child2 ], Child3 ],
+    declarations: [ [ ParentComponent ] ]
   })
   class Parent {}
 

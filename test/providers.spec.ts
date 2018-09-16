@@ -1,4 +1,4 @@
-import { FlModule, Component, Injectable, Inject } from '../src';
+import { FlModule, Component, Injectable, Inject } from '../dist';
 
 import { expect, assert } from 'chai';
 import 'mocha';

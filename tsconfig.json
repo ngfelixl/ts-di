@@ -3,14 +3,15 @@
     "target": "es2017",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./dist",
     "sourceMap": true,
-    "rootDir": "./src",
     "strict": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
   "exclude": [
-    "./test"
+    "./dist"
   ]
 }
