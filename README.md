@@ -58,6 +58,21 @@ same or a childs containers class.
 
 The DI system is hierarchical.
 
+## Cheatsheet
+
+| Decorator                    | Description         | Parameters        | Return value         |
+| ---------------------------- | ------------------- | ----------------- | -------------------- |
+| `@FlModule()`                | Creates a container where the classes are stored, imports child-FlModules | config: { imports?: any[], declarations?: any[], providers?: any[], exports?: any[] } | Returns a custom decorator where a container object is created in the constructor |
+| `@Injectable()`              | Make class bindable to an FlModules container | -         | Inversify @injectable()   |
+| `@Component()`               | Make class bindable to an FlModules container | -         | Inversify @injectable()   | 
+| `@Inject(serviceIdentifier)` | Let the DI know that a class instance is needed, if not exist, create class | serviceIdentifier    | -       |
+
+| Input parameter              | Description                      |
+| ---------------------------- | -------------------------------- |
+| imports                      | Creates an instance of the imported `FlModule()`, reads the exports parameter of the instantiated object and stores the exports in its own container. The instance is handled as a child of this module, so Inject()s will work in the child even if the child does not contain the instance itself, but its parent. |
+| declarations                 | Binds `@Component()` decorated classes to the container and after creating all child inputs it directly creates an instance. |
+| providers                    | Binds `@Injectable()` decorated classes to the container |
+| exports                      | Binds `@Injectable()` or `@Component()` decorated classes to the parents container |
 
 ## Dependencies
 
