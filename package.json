@@ -18,7 +18,8 @@
     "dependencyinjection",
     "di",
     "dependency",
-    "injection"
+    "injection",
+    "object-orientation"
   ],
   "author": "Felix Lemke",
   "license": "MIT",
