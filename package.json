@@ -1,6 +1,6 @@
 {
   "name": "fl-node-di",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NodeJS dependency injection in Angular style",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
