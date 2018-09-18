@@ -67,3 +67,4 @@ function Inject(serviceIdentifier) {
     return inversify_1.inject(serviceIdentifier);
 }
 exports.Inject = Inject;
+//# sourceMappingURL=index.js.map
