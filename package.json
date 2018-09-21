@@ -1,9 +1,16 @@
 {
   "name": "fl-node-di",
-  "version": "0.0.3",
   "description": "NodeJS dependency injection in Angular style",
+  "version": "0.0.4",
+  "author": "Felix Lemke <flemke.dev@gmail.com> (https://felixlemke.com)",
+  "bugs": {
+    "url": "https://github.com/ngfelixl/fl-node-di/issues"
+  },
+  "homepage": "https://github.com/ngfelixl/fl-node-di#readme",
+  "icon": "icon.png",
+  "keywords": ["nodejs","dependencyinjection","di","dependency","injection","object-orientation"],
+  "license": "MIT",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ngfelixl/fl-node-di.git"
@@ -13,20 +20,7 @@
     "uglify": "uglifyjs dist/index.js --mangle --compress -o dist/index.min.js",
     "build": "tsc -p src && npm run uglify"
   },
-  "keywords": [
-    "nodejs",
-    "dependencyinjection",
-    "di",
-    "dependency",
-    "injection",
-    "object-orientation"
-  ],
-  "author": "Felix Lemke",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ngfelixl/fl-node-di/issues"
-  },
-  "homepage": "https://github.com/ngfelixl/fl-node-di#readme",
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",
