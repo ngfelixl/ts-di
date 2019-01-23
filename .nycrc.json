@@ -9,11 +9,11 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "dist"
+    "dist/**/*"
   ],
   "reporter": [
     "lcov",
-    "text-summary"
+    "text"
   ],
   "require": [
     "ts-node/register"
@@ -22,6 +22,6 @@
     ".ts"
   ],
   "sourceMap": true,
-  "instrument": true,
+  "instrument": false,
   "all": false
 }
