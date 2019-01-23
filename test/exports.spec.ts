@@ -1,4 +1,4 @@
-import { FlModule, Component, Injectable, Inject } from '../dist';
+import { NestModule, Component, Injectable, Inject } from '../src';
 
 import { expect } from 'chai';
 import 'mocha';
@@ -6,7 +6,7 @@ import 'mocha';
 let service1Counter = 0;
 let service2Counter = 0;
 
-describe('Test exports', () => {
+describe('exports', () => {
   @Injectable()
   class Child1Service {
     constructor() {
@@ -58,7 +58,7 @@ describe('Test exports', () => {
   }
 
 
-  @FlModule({
+  @NestModule({
     declarations: [ Child1Component1, Child1Component2 ],
     exports: [ [ Child1Service ] ]
   })
@@ -66,18 +66,18 @@ describe('Test exports', () => {
     constructor() {}
   }
 
-  @FlModule({
+  @NestModule({
     declarations: [ [ Child2Component1 ] ],
     providers: [ [ Child2Service ] ],
     exports: [ Child2Service ]
   })
   class Child2 {}
 
-  @FlModule({})
+  @NestModule({})
   class Child3 {}
 
 
-  @FlModule({
+  @NestModule({
     imports: [ [ Child1, Child2 ], Child3 ],
     declarations: [ [ ParentComponent ] ]
   })

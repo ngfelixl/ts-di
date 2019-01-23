@@ -2,27 +2,27 @@
 
 # Hierarchical NodeJS dependency injection inspired by Angular
 
-See this library in action with this [stackblitz demo](https://stackblitz.com/edit/fl-node-di).
+See this library in action with this [stackblitz demo](https://stackblitz.com/edit/ts-nest).
 
-[![Build Status](https://travis-ci.org/ngfelixl/fl-node-di.svg?branch=master)](https://travis-ci.org/ngfelixl/fl-node-di)
-[![Coverage Status](https://coveralls.io/repos/github/ngfelixl/fl-node-di/badge.svg?branch=master&service=github)](https://coveralls.io/github/ngfelixl/fl-node-di?branch=master)
-[![npm version](https://badge.fury.io/js/fl-node-di.svg)](https://badge.fury.io/js/fl-node-di)
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/fl-node-di/)
+[![Build Status](https://travis-ci.org/ngfelixl/ts-nest.svg?branch=master)](https://travis-ci.org/ngfelixl/ts-nest)
+[![Coverage Status](https://coveralls.io/repos/github/ngfelixl/ts-nest/badge.svg?branch=master&service=github)](https://coveralls.io/github/ngfelixl/ts-nest?branch=master)
+[![npm version](https://badge.fury.io/js/ts-nest.svg)](https://badge.fury.io/js/ts-nest)
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/ts-nest/)
 
 ## Installation
 
 Add the package to your project
 
 ```bash
-npm i --save fl-node-di
+npm i --save ts-nest
 # or
-yarn add fl-node-di
+yarn add ts-nest
 ```
 
 Import the decorators with
 
 ```typescript
-import { FlModule, Component, Injectable, Inject } from 'fl-node-di'
+import { NestModule, Component, Injectable, Inject } from 'ts-nest'
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ backend DI in a way similar to Angulars DI. E.g. you can use the following snipp
 your complete application
 
 ```typescript
-@FlModule({
+@NestModule({
   imports: [ AuthModule, Http2Module ],
   declarations: [ AppComponent ],
   providers: [ AuthService ],
@@ -70,16 +70,16 @@ The decorators:
 
 | Decorator                    | Description         | Parameters        | Return value         |
 | ---------------------------- | ------------------- | ----------------- | -------------------- |
-| `@FlModule()`                | Creates a container where the classes are stored, imports child-FlModules | config: { imports?: any[], declarations?: any[], providers?: any[], exports?: any[] } | Returns a custom decorator where a container object is created in the constructor |
-| `@Injectable()`              | Make class bindable to an FlModules container | -         | Inversify @injectable()   |
-| `@Component()`               | Make class bindable to an FlModules container | -         | Inversify @injectable()   | 
+| `@NestModule()`              | Creates a container where the classes are stored, imports child-NestModules | config: { imports?: any[], declarations?: any[], providers?: any[], exports?: any[] } | Returns a custom decorator where a container object is created in the constructor |
+| `@Injectable()`              | Make class bindable to an NestModules container | -         | Inversify @injectable()   |
+| `@Component()`               | Make class bindable to an NestModules container | -         | Inversify @injectable()   | 
 | `@Inject(serviceIdentifier)` | Let the DI know that a class instance is needed, if not exist, create class | serviceIdentifier    | -       |
 
-The `@FlModule()` parameters:
+The `@NestModule()` parameters:
 
 | Input parameter              | Description                      |
 | ---------------------------- | -------------------------------- |
-| imports                      | Creates an instance of the imported `FlModule()`, reads the exports parameter of the instantiated object and stores the exports in its own container. The instance is handled as a child of this module, so Inject()s will work in the child even if the child does not contain the instance itself, but its parent. |
+| imports                      | Creates an instance of the imported `NestModule()`, reads the exports parameter of the instantiated object and stores the exports in its own container. The instance is handled as a child of this module, so Inject()s will work in the child even if the child does not contain the instance itself, but its parent. |
 | declarations                 | Binds `@Component()` decorated classes to the container and after creating all imports it directly creates an instance. |
 | providers                    | Binds `@Injectable()` decorated classes to the container |
 | exports                      | Binds `@Injectable()` or `@Component()` decorated classes to the parents container |

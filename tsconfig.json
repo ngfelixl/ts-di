@@ -7,9 +7,8 @@
     "strict": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": true,
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "removeComments": false,
+    "outDir": "./dist"
   },
   "exclude": [
     "./dist"
