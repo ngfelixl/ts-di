@@ -1,0 +1,21 @@
+{
+  "check-coverage": true,
+  "per-file": true,
+  "include": [
+    "src/**/*.ts"
+  ],
+  "reporter": [
+    "lcov",
+    "text-summary"
+  ],
+  "require": [
+    "ts-node/register"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "sourceMap": true,
+  "instrument": true,
+  "cache": true,
+  "all": true
+}

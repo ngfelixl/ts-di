@@ -26,7 +26,7 @@
     "url": "git+https://github.com/ngfelixl/ts-nest.git"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "test": "nyc mocha",
     "uglify": "uglifyjs dist/index.js --mangle --compress -o dist/index.js",
     "build": "tsc -p src/tsconfig.json && npm run uglify"
   },

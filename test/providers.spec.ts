@@ -1,7 +1,6 @@
 import { NestModule, Component, Injectable, Inject } from '../src';
 
 import { expect, assert } from 'chai';
-import 'mocha';
 
 let serviceCounter = 0;
 
