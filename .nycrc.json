@@ -1,6 +1,6 @@
 {
   "check-coverage": true,
-  "per-file": true,
+  "per-file": false,
   "lines": [80, 95],
   "statements": [80, 95],
   "functions": [80, 95],
@@ -9,7 +9,7 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "dist/*"
+    "dist"
   ],
   "reporter": [
     "lcov",
@@ -22,6 +22,6 @@
     ".ts"
   ],
   "sourceMap": true,
-  "instrument": false,
+  "instrument": true,
   "all": true
 }
