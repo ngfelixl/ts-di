@@ -9,22 +9,35 @@ export interface DecoratorConfig {
   exports?: any[];
 }
 
-
 /**
- * FlModule decorator
- * @param config as { imports?: any[], providers?: any[], declarations?: any[], exports?: any[] }
+ * ## NestModule decorator
  * 
- * imports: Creates an instance of imported modules without container bindings, binds exports of child to own container
+ * Creates a new Module which can be included into the dependency tree by
+ * importing into other modules. These way all the application class instances
+ * can be easily injected into the modules components.
  * 
- * providers: Binds class definition to container
+ * @param config
  * 
- * declarations: Binds class definition to container and creates an instance
  * 
- * exports: Binds exports array to reflect-metadata to be accessible by imports
+ * ### Example
+ * 
+ * ```
+@NestModule({
+  imports: [],
+  declarations: [],
+  providers: [],
+  exports: []
+})
+export class AppModule {}
+```
+ * ### Parameters
+ * - imports: Binds a child module to this module (creates instance and provides all provided services to child)
+ * - providers: Constructs if injected into components
+ * - declarations: Constructs immediately
+ * - exports: Binds exports array to reflect-metadata to be accessible by imports
  */
-export function FlModule(config: DecoratorConfig) {
+export function NestModule(config: DecoratorConfig) {
   return function <T extends { new(...args: any[]): {} }>(constructor: T) {
-    // console.log(`\nConstructing ${constructor.name}`); // MyClass
     let container = new Container({ defaultScope: "Singleton" });
 
     if (config.providers) {
@@ -80,21 +93,76 @@ export function FlModule(config: DecoratorConfig) {
 }
 
 /**
- * @return inversify injectable()
+ * ## Injectable
+ * An *Injectable* decorated class can be provided in **NestModules**
+ * and all its child modules.
+ * 
+ * ### Example
+ * 
+ * Create the service as follows
+```
+@Injectable()
+export class ExampleService {
+  // Service logic goes here
+}
+```
+ * And provide it in your module (e.g. *AppModule*) and all child modules by
+```
+@NestModule({
+  imports: [ OneModule, TwoModule ],
+  provide: [ ExampleService ]
+})
+export class AppModule {}
+```
  */
 export function Injectable() {
   return injectable();
 }
 
 /**
- * @return inversify injectable()
+ * ## Component
+ * A *Component* decorated class can be declared in **NestModules**.
+ * A declaration automatically creates an instance of the components
+ * and adds it to the dependency tree. Services can be injected in
+ * the components constructor.
+ * 
+ * ### Example
+ * 
+ * #### Class Definition
+ * 
+ * Define the component in the following way. Decorate it with the
+ * *Component* decorator.
+```
+@Component()
+export class ExampleComponent {}
+```
+ * 
+ * #### Declaring the component
+ * 
+```
+@NestModule({
+  declarations: [ ExampleComponent ],
+  providers: [ ExampleService ]
+})
+export class AppModule {}
+```
+ * #### Injecting the Service
+ * 
+ * You can now inject the *ExampleService* in all the declared components
+ * of this module. Here's an example
+ * 
+```
+@Component()
+export class ExampleComponent {
+  constructor(@Inject(ExampleService) service: ExampleService) {}
+}
+```
  */
 export function Component() {
   return injectable();
 }
 
 /**
- * 
  * @param serviceIdentifier
  * @return inversify inject(serviceIdentifier)
  */

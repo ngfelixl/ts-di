@@ -1,24 +1,34 @@
 {
-  "name": "fl-node-di",
+  "name": "ts-nest",
   "description": "NodeJS dependency injection inspired by Angular",
   "version": "0.0.6",
   "author": "Felix Lemke <flemke.dev@gmail.com> (https://felixlemke.com)",
   "bugs": {
-    "url": "https://github.com/ngfelixl/fl-node-di/issues"
+    "url": "https://github.com/ngfelixl/ts-nest/issues"
   },
-  "homepage": "https://github.com/ngfelixl/fl-node-di#readme",
-  "icon": "icon.png",
-  "keywords": ["nodejs","dependencyinjection","di","dependency","injection","object-orientation"],
+  "homepage": "https://github.com/ngfelixl/ts-nest#readme",
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "dependencyinjection",
+    "hierarchical",
+    "object-orientation"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
+  "files": [
+    "dist/index.d.ts",
+    "dist/index.js",
+    "dist/index.js.map"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngfelixl/fl-node-di.git"
+    "url": "git+https://github.com/ngfelixl/ts-nest.git"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec",
-    "uglify": "uglifyjs dist/index.js --mangle --compress -o dist/index.min.js",
-    "build": "tsc -p src && npm run uglify"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "uglify": "uglifyjs dist/index.js --mangle --compress -o dist/index.js",
+    "build": "tsc -p src/tsconfig.json && npm run uglify"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
