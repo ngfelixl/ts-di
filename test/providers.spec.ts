@@ -1,4 +1,4 @@
-import { NestModule, Component, Injectable, Inject } from '../src';
+import { NestModule, Component, Injectable, Inject } from '../src/index';
 
 import { expect, assert } from 'chai';
 
