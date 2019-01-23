@@ -1,6 +1,8 @@
 
 
-# Hierarchical NodeJS dependency injection in Angular style
+# Hierarchical NodeJS dependency injection inspired by Angular
+
+See this library in action with this [stackblitz demo](https://stackblitz.com/edit/fl-node-di).
 
 [![Build Status](https://travis-ci.org/ngfelixl/fl-node-di.svg?branch=master)](https://travis-ci.org/ngfelixl/fl-node-di)
 [![Coverage Status](https://coveralls.io/repos/github/ngfelixl/fl-node-di/badge.svg?branch=master&service=github)](https://coveralls.io/github/ngfelixl/fl-node-di?branch=master)
