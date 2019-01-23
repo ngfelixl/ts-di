@@ -18,5 +18,7 @@
   "extension": [
     ".ts"
   ],
-  "sourceMap": true
+  "sourceMap": false,
+  "instrument": false,
+  "all": true
 }
