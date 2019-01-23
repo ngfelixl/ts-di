@@ -1,6 +1,6 @@
 {
   "check-coverage": true,
-  "per-file": false,
+  "per-file": true,
   "lines": [80, 95],
   "statements": [80, 95],
   "functions": [80, 95],
@@ -23,5 +23,5 @@
   ],
   "sourceMap": true,
   "instrument": true,
-  "all": true
+  "all": false
 }
