@@ -27,6 +27,7 @@
   },
   "scripts": {
     "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "uglify": "uglifyjs dist/index.js --mangle --compress -o dist/index.js",
     "build": "tsc -p src/tsconfig.json && npm run uglify"
   },

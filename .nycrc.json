@@ -1,6 +1,10 @@
 {
   "check-coverage": true,
   "per-file": true,
+  "lines": [80, 95],
+  "statements": [80, 95],
+  "functions": [80, 95],
+  "branches": [80, 95],
   "include": [
     "src/**/*.ts"
   ],
@@ -15,6 +19,7 @@
     ".ts"
   ],
   "sourceMap": true,
+  "produceSourceMap": true,
   "instrument": true,
   "cache": true,
   "all": true
