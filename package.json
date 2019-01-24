@@ -1,7 +1,7 @@
 {
   "name": "ts-nest",
   "description": "NodeJS dependency injection inspired by Angular",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Felix Lemke <flemke.dev@gmail.com> (https://felixlemke.com)",
   "bugs": {
     "url": "https://github.com/ngfelixl/ts-nest/issues"
