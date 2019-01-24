@@ -98,3 +98,16 @@ The `@NestModule()` parameters:
 
 - [inversify](http://inversify.io/)
 - [reflect-metadata](https://github.com/rbuckton/reflect-metadata)
+
+# Get in touch
+
+Hi, I am Felix,
+Angular developer and NgRX contributor
+
+![avatar](https://avatars2.githubusercontent.com/u/24190530?s=200&v=4)
+
+If you like this library, think about giving it a star or follow me on twitter or github.
+
+[![twitter](https://img.shields.io/badge/twitter-%40ngfelixl-blue.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ngfelixl)
+[![github](https://img.shields.io/badge/github-%40ngfelixl-blue.svg?logo=github)](https://github.com/ngfelixl)
+[![stackoverflow](https://img.shields.io/badge/stackoverflow-%40ngfelixl-blue.svg?logo=stackoverflow)](https://stackoverflow.com/users/8808496/ngfelixl)
