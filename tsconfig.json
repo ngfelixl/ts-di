@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2015",
     "module": "commonjs",
     "declaration": true,
     "sourceMap": true,
@@ -8,7 +8,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDirs": ["./src","./test"],
+    "sourceRoot": "."
   },
   "exclude": [
     "./dist"
