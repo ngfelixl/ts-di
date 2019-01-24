@@ -9,6 +9,7 @@ inpired by Angular. It is build on top of [inversify](http://inversify.io/). See
 [![Build Status](https://travis-ci.org/ngfelixl/ts-nest.svg?branch=master)](https://travis-ci.org/ngfelixl/ts-nest)
 [![Coverage Status](https://coveralls.io/repos/github/ngfelixl/ts-nest/badge.svg?branch=master&service=github)](https://coveralls.io/github/ngfelixl/ts-nest?branch=master)
 [![npm version](https://badge.fury.io/js/ts-nest.svg)](https://badge.fury.io/js/ts-nest)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/ts-nest/)
 
 ## Installation
@@ -76,7 +77,7 @@ all its children (with a single object instance).
 
 ## Cheatsheet
 
-The decorators:
+### Decorators
 
 | Decorator                    | Description         | Parameters        | Return value         |
 | ---------------------------- | ------------------- | ----------------- | -------------------- |
@@ -85,7 +86,7 @@ The decorators:
 | `@Component()`               | Make class bindable to an NestModules container | -         | Inversify @injectable()   | 
 | `@Inject(serviceIdentifier)` | Let the DI know that a class instance is needed, if not exist, create class | serviceIdentifier    | -       |
 
-The `@NestModule()` parameters:
+### NestModule parameters
 
 | Input parameter              | Description                      |
 | ---------------------------- | -------------------------------- |
@@ -99,7 +100,11 @@ The `@NestModule()` parameters:
 - [inversify](http://inversify.io/)
 - [reflect-metadata](https://github.com/rbuckton/reflect-metadata)
 
-# Get in touch
+## Get in touch
+
+[![twitter](https://img.shields.io/badge/twitter-%40ngfelixl-blue.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ngfelixl)
+[![github](https://img.shields.io/badge/github-%40ngfelixl-blue.svg?logo=github)](https://github.com/ngfelixl)
+[![stackoverflow](https://img.shields.io/badge/stackoverflow-%40ngfelixl-blue.svg?logo=stackoverflow)](https://stackoverflow.com/users/8808496/ngfelixl)
 
 Hi, I am Felix,
 Angular developer and NgRX contributor
@@ -107,7 +112,3 @@ Angular developer and NgRX contributor
 ![avatar](https://avatars2.githubusercontent.com/u/24190530?s=200&v=4)
 
 If you like this library, think about giving it a star or follow me on twitter or github.
-
-[![twitter](https://img.shields.io/badge/twitter-%40ngfelixl-blue.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ngfelixl)
-[![github](https://img.shields.io/badge/github-%40ngfelixl-blue.svg?logo=github)](https://github.com/ngfelixl)
-[![stackoverflow](https://img.shields.io/badge/stackoverflow-%40ngfelixl-blue.svg?logo=stackoverflow)](https://stackoverflow.com/users/8808496/ngfelixl)
