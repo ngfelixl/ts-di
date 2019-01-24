@@ -2,7 +2,9 @@
 
 # Hierarchical NodeJS dependency injection inspired by Angular
 
-See this library in action with this [stackblitz demo](https://stackblitz.com/edit/ts-nest).
+Super lightweight (2kb) library for creating dependency trees in NodeJS applications
+inpired by Angular. It is build on top of [inversify](http://inversify.io/). See this library in action with this
+[stackblitz demo](https://stackblitz.com/edit/ts-nest).
 
 [![Build Status](https://travis-ci.org/ngfelixl/ts-nest.svg?branch=master)](https://travis-ci.org/ngfelixl/ts-nest)
 [![Coverage Status](https://coveralls.io/repos/github/ngfelixl/ts-nest/badge.svg?branch=master&service=github)](https://coveralls.io/github/ngfelixl/ts-nest?branch=master)
@@ -27,13 +29,12 @@ import { NestModule, Component, Injectable, Inject } from 'ts-nest'
 
 ## Usage
 
-NodeJS dependency injection module on top of [inversify](http://inversify.io/) for using
-backend DI in a way similar to Angulars DI. E.g. you can use the following snippet throughout
-your complete application
+Create a `NestModule` as application entrypoint and import all the
+wanted child modules, which are `NestModule`s themselves.
 
 ```typescript
 @NestModule({
-  imports: [ AuthModule, Http2Module ],
+  imports: [ AuthModule, HttpModule ],
   declarations: [ AppComponent ],
   providers: [ AuthService ],
   exports: [ ]
@@ -41,7 +42,14 @@ your complete application
 export class AppModule {}
 ```
 
-The other two decorators are 
+Bootstrap your application by simply contructing it
+
+```typescript
+const app = new AppModule();
+```
+
+There are two other types of objects in this dependency tree, `Component`s and
+`Injectable`s. Components can be created like follows.
 
 ```typescript
 @Component()
@@ -50,19 +58,21 @@ export class AppComponent {
 }
 ```
 
-which treats the decorator as an inversify `@injectable` and directly creates an instance when the
-parent module gets instanciated. The other one is the `@Injectable()` decorator
+As you may have recognized, the constructor receives an `Inject`ed parameter. This
+parameter can be provided in your `NestModule`, like it is done in the first listing.
+The `AuthService` is decorated by an `@Injectable()` decorator
 
 ```typescript
 @Injectable()
 export class AuthService {}
 ```
 
-which returns an inversify `@injectable` decorator, but does not directly creates an instance but
-instanciates itself when an `@Inject(serviceIdentifier)` is used as a constructor parameter in the
+When it is provided, the application knows about it, but does not directly create an instance. It
+gets instanciated when an `@Inject(serviceIdentifier)` is used as a constructor parameter in the
 same or a childs containers class.
 
-The DI system is hierarchical.
+The DI system is hierarchical. So the class provided in the parent module will also be available in
+all its children (with a single object instance).
 
 ## Cheatsheet
 
