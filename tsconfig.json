@@ -10,6 +10,7 @@
     "removeComments": false,
     "outDir": "./dist",
     "rootDirs": ["./src","./test"],
+    "sourceRoot": "."
   },
   "exclude": [
     "./dist"
