@@ -26,22 +26,28 @@
     "url": "git+https://github.com/ngfelixl/ts-nest.git"
   },
   "scripts": {
-    "test": "nyc mocha",
-    "coverage:alt": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "jest --config jestconfig.json --coverage",
+    "build": "tsc -p src/tsconfig.json && npm run uglify",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "coverage": "cat coverage/lcov.info | coveralls",
     "uglify": "uglifyjs dist/index.js --mangle --compress -o dist/index.js",
-    "build": "tsc -p src/tsconfig.json && npm run uglify"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/chai": "^4.1.4",
-    "@types/mocha": "^5.2.5",
+    "@types/jest": "^23.3.13",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0",
-    "source-map-support": "^0.5.10",
+    "jest": "^23.6.0",
+    "prettier": "^1.16.1",
+    "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4",
     "uglify-es": "^3.3.9"
   },
